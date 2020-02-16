@@ -1,0 +1,22 @@
+{
+  "name": "sass-basics",
+  "version": "1.0.0",
+  "description": "practice sass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/latimercaleb/sass-basics.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/latimercaleb/sass-basics/issues"
+  },
+  "homepage": "https://github.com/latimercaleb/sass-basics#readme",
+  "dependencies": {
+    "sass": "^1.25.0"
+  }
+}
