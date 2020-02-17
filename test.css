@@ -3,9 +3,105 @@ div .someElem {
   line-height: 1.5;
   background: url("../images/somePicture.jpg");
   box-shadow: 1px 1px 2px teal;
+  border-color: rgba(255, 0, 0, 0.3);
 }
 
 html {
   background: #ccc;
   color: red;
+}
+
+#parent {
+  background: green;
+}
+#parent #child-One, #parent .another, #parent .evenmore {
+  background: yellow;
+  font-size: 1em;
+}
+#parent #child-Two {
+  font-weight: 200;
+}
+#parent #child-Two #inner-child .content {
+  background: blue;
+}
+#parent.HasClass #button {
+  background: blue;
+  font-weight: bold;
+  font-style: italic;
+}
+
+#stub1 .c1 .PossibleStub2 {
+  background-color: teal;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.c1 {
+  line-height: 2em;
+}
+
+#parent .sign .child, #parent video .child, #parent img .child, #parent elementOne .child, #parent ElementTwo .child, #parent ElementThree .child, #parent .content .child {
+  background: green;
+  font-size: 2em;
+}
+
+.content {
+  line-height: 2em;
+}
+
+p {
+  color: blue;
+  background-color: #ff0000;
+  line-height: 1.5;
+}
+p #main {
+  color: blue;
+  background: green;
+  line-height: 3;
+}
+
+body {
+  color: green;
+  width: 200px;
+  -webkit-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3), 4px 4px 2px gray;
+  -moz-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3), 4px 4px 2px gray;
+  -o-box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3), 4px 4px 2px gray;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.3), 4px 4px 2px gray;
+}
+body #main {
+  color: blue;
+  background: green;
+  line-height: 2.6;
+}
+
+@-webkit-keyframes myAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes myAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes myAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes myAnim {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

@@ -10,15 +10,139 @@ $l1: 1px 1px 2px #bbb;
 $l2: 1px 1px 2px #aaa;
 $l3: 1px 1px 2px teal;
 
+$redNorm: red;
+$redHex: #ff0000;
+// The other color types get converted to hex or it's string name when sass is able to
+$redrgb:rgb(255,160,122);
+$redrgba: rgba(255, 0, 0, 1);
+$redhsl:hsl(0, 100%, 50%);
+$redhsla: hsl(0, 100%, 50%, 0.3);
 
 div .#{$specialSelector} {
     width: $width;
     line-height: $float;
     background: url($fileStr);
     box-shadow: $l3;
+    border-color: $redhsla;
 }
 
 html{
     background: $gray;
     color: red;
 }
+
+// Inheritance: Selector Inheritance
+$el :  button;
+$list : elementOne, ElementTwo, ElementThree;
+#parent  {
+     background:green;
+    // Descendant selector, each comma makes a new descendant selector
+     #child-One, .another, .evenmore{
+           background:yellow;
+           font-size:1em;
+     }
+
+     #child-Two{
+           font-weight:200;
+           #inner-child .content{
+                 background:blue;
+           }
+     }
+     
+     // The & here adds another specificity on that selector, can also add the button element on iot
+     &.HasClass ##{ $el } {
+           background: blue;
+           font-weight: bold;
+           font-style: italic;
+     }
+
+}
+
+// Inheritance: Property inheritance
+
+#stub1 %s1 .PossibleStub2{
+    background-color: teal;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.c1 {
+    @extend %s1;
+    line-height: 2em;
+}
+#parent %shared .child{
+      background:green;
+      font-size:2em;
+}
+
+.content {
+      @extend %shared;
+      line-height: 2em;
+ }
+
+ // Sharing across multiple elements makes a new selector that fits the shared propety
+ .sign, video, img, #{ $list } {
+       @extend %shared;
+}
+
+
+// Mixins
+$color :  blue;
+// Declare with @mixin and give it a name
+@mixin cssMixin {
+    color: $color;
+    background-color: $redHex;
+    line-height: $float;
+}
+
+// Mixins can accept not only sass but args as well to further enhance dynamic results
+@mixin cssProperties( $argOne, $argTwo ) {
+    #main{
+          color: $argOne;
+          background: green;
+          line-height: $argTwo;
+    }
+}
+
+// Use ... to denote multiple values to one selector if passing in multiple lists to one arg
+@mixin boxShadow( $shadow... ) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -o-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+// Mixins must be declared before being called
+p{
+    @include cssMixin(); // Call like function with @include directive
+    @include cssProperties($color, 3 );
+}
+
+@mixin keyframes( $name ) {
+      @-webkit-keyframes #{ $name } {
+            @content;
+      }
+      @-moz-keyframes #{ $name } {
+            @content;
+      }
+      @-o-keyframes #{ $name } {
+            @content;
+      }
+      @keyframes #{ $name } {
+            @content;
+      }
+}
+
+body {
+
+      color:green;
+      width:200px;
+      @include boxShadow( 1px 2px 3px rgba(0,0,0,.3) , 4px 4px 2px gray );
+
+      @include cssProperties( $color, 2.6 );
+}
+
+@include keyframes( myAnim ) {
+    // This body defines what @content is and is applied in the mixin whenever @content is called
+      0% { opacity: 0 }
+      100% { opacity: 1 }
+};
