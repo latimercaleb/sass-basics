@@ -228,7 +228,29 @@ $Map1 : (
  $z: 20px;
  $d: 2;
 
+ $eq: ($d + $x) - $y;
+
  span{
      width: $x+$y;
      height: $z % $d;
+     line-height: $eq;
+     // Can use round, floor, ceil, percentage to do some conversions
+     // Rand and abs are pretty useful to among others
+ }
+
+ // Control Structures
+ $type: element;
+ $num: 10;
+ $val: null;
+
+ a{
+     @if $type == erlement{
+         content: 'Value is true';
+     } 
+     @else if $type != element{
+         content: 'Kind of';
+     }
+     @else{
+         content: 'Nope';
+     }
  }
