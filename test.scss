@@ -193,14 +193,14 @@ section{
 }
 
 $BasicMap : (
-      'KeyName'    : 'Value',
+      'KeyName' : 'Value',
       'AnotherKey' : 200px
 );
 
 $Map1 : (
-      'KeyName'    :  'targeting a key produces it\'s value!',
-      'String'          :  string,
-      'Number'      :  102,
+      'KeyName':  'targeting a key produces it\'s value!',
+      'String':  string,
+      'Number' :  102,
       'List'             :  ( background .2s,  color .3s ),
       'NestedMap' :  (
             'NestedKey' :  'Nested value',
@@ -210,3 +210,25 @@ $Map1 : (
  );
 
  $Map2 : (   'key1' : 'value1',   'key2' : 'value2',   'key3' : 'value3' );
+
+ // Map functions
+ .mapWrapper{
+     content: map-keys($BasicMap);
+     content: map-values($BasicMap); // Cannot print values of nested maps like map1, it'll get error
+     content: map-has-key($Map1, 'Number');
+     content: map-has-key($Map1, 'Stringerw');
+     content: map-get($Map1, 'Number');
+     content: inspect(map-merge($Map1, $BasicMap)); // Must be wrapped in inspect to render a string
+     content: inspect(map-remove($Map2, 'key2'));
+ }
+
+ // Math
+ $x: 10px;
+ $y: 15px;
+ $z: 20px;
+ $d: 2;
+
+ span{
+     width: $x+$y;
+     height: $z % $d;
+ }

@@ -140,3 +140,18 @@ section {
   background: 1px 4em black, 2px 3em green, 3px 2em blue, 4px 1em red;
   background: 1px 4em black, 2px 3em green, 3px 2em blue, 4px 1em red;
 }
+
+.mapWrapper {
+  content: "KeyName", "AnotherKey";
+  content: "Value", 200px;
+  content: true;
+  content: false;
+  content: 102;
+  content: ("KeyName": "Value", "String": string, "Number": 102, "List": (background 0.2s, color 0.3s), "NestedMap": ("NestedKey": "Nested value", "url": "../images/nestedImg.png", "Width": 300px), "AnotherKey": 200px);
+  content: ("key1": "value1", "key3": "value3");
+}
+
+span {
+  width: 25px;
+  height: 0px;
+}
