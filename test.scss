@@ -243,6 +243,7 @@ $Map1 : (
  $num: 10;
  $val: null;
 
+ // If else
  a{
      @if $type == erlement{
          content: 'Value is true';
@@ -253,4 +254,72 @@ $Map1 : (
      @else{
          content: 'Nope';
      }
+ }
+
+ // Repetition structures
+ $headers:  h1,h2,h3,h4,h5,h6;
+ $fontSize: 55px, 45px, 40px, 35px, 30px, 25px;
+ 
+ $headersMap : (
+       h1 : 55px,
+       h2 : 50px,
+       h3 : 45px
+ );
+
+ $colorList: teal,azure,indigo,seafoam,evergreen,rebeccapurple;
+ 
+ $len: length($headers);
+ 
+ $index : 1;
+ 
+ // Incrementing loop
+ @for $i from 1 through $len {
+     h#{$i}{
+         font-size: nth($fontSize,$i);
+     }
+ }
+ // Decrementing loop
+//  @for $i from $len through 1 {
+//       #{ nth( $headers , $i ) } {
+//             font-size: nth( $fontSize , $i );
+//             line-height: nth( $fontSize , $i ) + 10;
+//       }
+//  }
+
+ // Over a map
+ @each $head, $font in $headersMap{
+      #{$head} {
+            font-size: $font;
+      }
+ }
+
+ 
+ @while $index <= 6 {
+       #{ nth( $headers , $index ) } {
+             color: nth( $colorList , $index );
+       }
+       $index : $index + 1;
+ }
+ 
+ // Functions
+ @function same-first-elem($arg1, $arg2){
+     // vars here are local scoped
+    $first: nth($arg1, 1);
+    $second: nth($arg2, 1);
+
+    @if $first == $second {
+        @return 100;
+    } @else{
+        @return -100;
+    }
+ }
+
+ $tList: 500,200,300;
+ $dList: 400,300,200;
+ $sList: 500,200,300;
+
+ li{
+     height: same-first-elem($tList,$sList);
+     width: same-first-elem($tList,$dList);
+     // color: $first; // Causes error because undefined
  }

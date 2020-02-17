@@ -160,3 +160,73 @@ span {
 a {
   content: "Nope";
 }
+
+h1 {
+  font-size: 55px;
+}
+
+h2 {
+  font-size: 45px;
+}
+
+h3 {
+  font-size: 40px;
+}
+
+h4 {
+  font-size: 35px;
+}
+
+h5 {
+  font-size: 30px;
+}
+
+h6 {
+  font-size: 25px;
+}
+
+h1 {
+  font-size: 55px;
+}
+
+h2 {
+  font-size: 50px;
+}
+
+h3 {
+  font-size: 45px;
+}
+
+h1 {
+  color: teal;
+}
+
+h2 {
+  color: azure;
+}
+
+h3 {
+  color: indigo;
+}
+
+h4 {
+  color: seafoam;
+}
+
+h5 {
+  color: evergreen;
+}
+
+h6 {
+  color: rebeccapurple;
+}
+
+li {
+  height: 100;
+  width: -100;
+}
+
+b {
+  display: flex;
+  transition: all 0.2s;
+}
